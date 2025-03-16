@@ -13,8 +13,8 @@ describe("AttemptList Component", () => {
 
   test("renders table rows when multiple attempts are provided", () => {
     const attempts: Attempt[] = [
-      { id: 1, value: "123456789", isCorrect: true },
-      { id: 2, value: "987654321", isCorrect: false },
+      { id: 1, attemptInput: "123456789", isCorrect: true },
+      { id: 2, attemptInput: "987654321", isCorrect: false },
     ];
 
     render(<AttemptList attempts={attempts} />);
