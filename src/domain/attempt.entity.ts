@@ -1,5 +1,5 @@
 export interface Attempt {
   id: number;
-  value: string;
+  attemptInput: string;
   isCorrect: boolean;
 }

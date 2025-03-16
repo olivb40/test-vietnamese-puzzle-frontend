@@ -21,6 +21,8 @@ div#root {
   display: flex;
   min-width: 100vw;
   min-height: 100vh;
+  color: #242424;
+  background-color: #ffffff;
 }
 
 h1 {

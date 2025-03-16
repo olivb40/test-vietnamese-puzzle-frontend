@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Attempt } from "../../domain/attempt.entity";
-import { AttemptServiceMock } from "../../infrastructure/test/attempt.service.mock";
+import { AttemptService } from "../../infrastructure/services/attempt.service";
 
 export const useAttempt = () => {
-  const attemptService = new AttemptServiceMock();
+  const attemptService = new AttemptService();
 
   const [attempts, setAttempts] = useState<Attempt[]>([]);
 
@@ -12,10 +12,8 @@ export const useAttempt = () => {
     setAttempts(attempts);
   };
 
-  const upsertAttempt = async (value: string): Promise<Attempt> => {
-    const attempt = await attemptService.postAttempt(value);
-    return attempt;
+  return {
+    attempts,
+    fetchAttempts,
   };
-
-  return { attempts, fetchAttempts, upsertAttempt };
 };

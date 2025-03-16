@@ -16,7 +16,7 @@ export default function AttemptList(props: AttemptListProps) {
   }
 
   return (
-    <div className="p-4">
+    <div className="overflow-x-auto max-h-96 border border-gray-200">
       <table className="min-w-full divide-y divide-gray-200 shadow-sm">
         <thead className="bg-gray-50">
           <tr>
@@ -40,7 +40,9 @@ export default function AttemptList(props: AttemptListProps) {
           {attempts.map((attempt) => (
             <tr key={attempt.id}>
               {/* Display the attempt value */}
-              <td className="px-6 py-4 whitespace-nowrap">{attempt.value}</td>
+              <td className="px-6 py-4 whitespace-nowrap">
+                {attempt.attemptInput}
+              </td>
               {/* Display whether the attempt is correct */}
               <td className="px-6 py-4 whitespace-nowrap">
                 {attempt.isCorrect ? "Yes" : "No"}

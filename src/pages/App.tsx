@@ -4,11 +4,12 @@ import { useAttempt } from "../components/AttemptForm/useAttempt";
 import { AttemptList } from "../components/AttemptList";
 
 const App = () => {
-  const { attempts, fetchAttempts, upsertAttempt } = useAttempt();
+  const { attempts, fetchAttempts } = useAttempt();
 
   useEffect(() => {
     fetchAttempts();
-  }, [fetchAttempts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="w-full md:w-1/2 mx-auto p-8">
@@ -22,12 +23,9 @@ const App = () => {
           between <strong>1 and 9</strong>.
         </p>
       </div>
-      <AttemptForm
-        onSubmit={async (value: string) => {
-          await upsertAttempt(value);
-          await fetchAttempts();
-        }}
-      />
+
+      <AttemptForm onSubmit={() => fetchAttempts()} />
+
       <AttemptList attempts={attempts} />
     </div>
   );
