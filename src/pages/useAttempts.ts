@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Attempt } from "../../domain/attempt.entity";
-import { AttemptService } from "../../infrastructure/services/attempt.service";
+import { AttemptService } from "../infrastructure/services/attempt.service";
+import { Attempt } from "../domain/attempt.entity";
 
-export const useAttempt = () => {
+export const useAttempts = () => {
   const attemptService = new AttemptService();
 
   const [attempts, setAttempts] = useState<Attempt[]>([]);

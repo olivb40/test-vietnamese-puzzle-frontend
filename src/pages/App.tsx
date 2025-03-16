@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { AttemptForm } from "../components/AttemptForm";
-import { useAttempt } from "../components/AttemptForm/useAttempt";
 import { AttemptList } from "../components/AttemptList";
+import { useAttempts } from "./useAttempts";
 
 const App = () => {
-  const { attempts, fetchAttempts } = useAttempt();
+  const { attempts, fetchAttempts } = useAttempts();
 
   useEffect(() => {
     fetchAttempts();

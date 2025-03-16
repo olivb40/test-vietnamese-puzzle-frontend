@@ -1,4 +1,3 @@
-// AttemptList.test.tsx
 import { render, screen } from "@testing-library/react";
 import { AttemptList } from "../src/components/AttemptList";
 import { Attempt } from "../src/domain/attempt.entity";

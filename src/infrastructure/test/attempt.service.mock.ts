@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Attempt } from "../../domain/attempt.entity";
 import { IAttemptService } from "../../domain/attempt.service.interface";
+import { SolutionResponse } from "../../domain/solution.ov";
 import { AbstractService } from "../share/service.abstract";
 import { ServiceNames } from "../share/service.constant";
 
 const fakeAttempts: Attempt[] = [
   {
     id: 1,
-    value: "123456789",
+    attemptInput: "123456789",
     isCorrect: true,
   },
   {
     id: 2,
-    value: "987654321",
+    attemptInput: "987654321",
     isCorrect: false,
   },
 ];
@@ -50,5 +51,12 @@ export class AttemptServiceMock
 
   async deleteAllAttempts(): Promise<void> {
     return;
+  }
+
+  async generateSolutions(): Promise<SolutionResponse> {
+    return Promise.resolve({
+      firstSolution: "123456789",
+      durationMs: 1000,
+    });
   }
 }
